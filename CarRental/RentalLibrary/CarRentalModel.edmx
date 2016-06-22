@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CarRentalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CarRental.dbo.Booking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Booking Number" />
+            <PropertyRef Name="Registration Number" />
+            <PropertyRef Name="Time Of Rental" />
+            <PropertyRef Name="Vehicle Category" />
+            <PropertyRef Name="Customer BirthDate" />
+            <PropertyRef Name="Current Milage" />
+          </Key>
+          <Property Name="Booking Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration Number" Type="int" Nullable="false" />
+          <Property Name="Time Of Rental" Type="datetime" Nullable="false" />
+          <Property Name="Vehicle Category" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Customer BirthDate" Type="int" Nullable="false" />
+          <Property Name="Current Milage" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CarRental.dbo.Cars' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Vehicle Category" />
+            <PropertyRef Name="Registration Number" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vehicle Category" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Registration Number" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CarRental.dbo.ReturnCar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ReturnCar">
+          <Key>
+            <PropertyRef Name="Booking Number" />
+            <PropertyRef Name="Registration Number" />
+            <PropertyRef Name="Time Of Return" />
+          </Key>
+          <Property Name="Booking Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration Number" Type="int" Nullable="false" />
+          <Property Name="Time Of Return" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Booking__Registr__1A14E395' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Booking__Registr__1A14E395" />-->
+        <EntityContainer Name="CarRentalModelStoreContainer">
+          <EntitySet Name="Booking" EntityType="Self.Booking" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Booking].[Booking Number] AS [Booking Number], 
+[Booking].[Registration Number] AS [Registration Number], 
+[Booking].[Time Of Rental] AS [Time Of Rental], 
+[Booking].[Vehicle Category] AS [Vehicle Category], 
+[Booking].[Customer BirthDate] AS [Customer BirthDate], 
+[Booking].[Current Milage] AS [Current Milage]
+FROM [dbo].[Booking] AS [Booking]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cars" EntityType="Self.Cars" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Cars].[ID] AS [ID], 
+[Cars].[Vehicle Category] AS [Vehicle Category], 
+[Cars].[Registration Number] AS [Registration Number]
+FROM [dbo].[Cars] AS [Cars]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ReturnCar" EntityType="Self.ReturnCar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ReturnCar].[Booking Number] AS [Booking Number], 
+[ReturnCar].[Registration Number] AS [Registration Number], 
+[ReturnCar].[Time Of Return] AS [Time Of Return]
+FROM [dbo].[ReturnCar] AS [ReturnCar]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarRentalModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Booking_Number" />
+            <PropertyRef Name="Registration_Number" />
+            <PropertyRef Name="Time_Of_Rental" />
+            <PropertyRef Name="Vehicle_Category" />
+            <PropertyRef Name="Customer_BirthDate" />
+            <PropertyRef Name="Current_Milage" />
+          </Key>
+          <Property Name="Booking_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_Number" Type="Int32" Nullable="false" />
+          <Property Name="Time_Of_Rental" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Vehicle_Category" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_BirthDate" Type="Int32" Nullable="false" />
+          <Property Name="Current_Milage" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Vehicle_Category" />
+            <PropertyRef Name="Registration_Number" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vehicle_Category" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Registration_Number" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReturnCar">
+          <Key>
+            <PropertyRef Name="Booking_Number" />
+            <PropertyRef Name="Registration_Number" />
+            <PropertyRef Name="Time_Of_Return" />
+          </Key>
+          <Property Name="Booking_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_Number" Type="Int32" Nullable="false" />
+          <Property Name="Time_Of_Return" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="CarRentalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bookings" EntityType="Self.Booking" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="ReturnCars" EntityType="Self.ReturnCar" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarRentalModelStoreContainer" CdmEntityContainer="CarRentalEntities">
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="CarRentalModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="Booking_Number" ColumnName="Booking Number" />
+                <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />
+                <ScalarProperty Name="Time_Of_Rental" ColumnName="Time Of Rental" />
+                <ScalarProperty Name="Vehicle_Category" ColumnName="Vehicle Category" />
+                <ScalarProperty Name="Customer_BirthDate" ColumnName="Customer BirthDate" />
+                <ScalarProperty Name="Current_Milage" ColumnName="Current Milage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="CarRentalModel.Car">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Vehicle_Category" ColumnName="Vehicle Category" />
+                <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnCars">
+            <EntityTypeMapping TypeName="CarRentalModel.ReturnCar">
+              <MappingFragment StoreEntitySet="ReturnCar">
+                <ScalarProperty Name="Booking_Number" ColumnName="Booking Number" />
+                <ScalarProperty Name="Registration_Number" ColumnName="Registration Number" />
+                <ScalarProperty Name="Time_Of_Return" ColumnName="Time Of Return" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

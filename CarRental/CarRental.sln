@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalConsole", "CarRental\CarRentalConsole.csproj", "{D8203755-C4CA-40FE-84F5-238736222184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalLibrary", "RentalLibrary\RentalLibrary.csproj", "{E6C26498-B496-43DA-945D-28A665755014}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "MethodLibrary\Application.csproj", "{D21D2D4D-6F1A-47AA-AFE3-88413AD82116}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8203755-C4CA-40FE-84F5-238736222184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8203755-C4CA-40FE-84F5-238736222184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8203755-C4CA-40FE-84F5-238736222184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8203755-C4CA-40FE-84F5-238736222184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6C26498-B496-43DA-945D-28A665755014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C26498-B496-43DA-945D-28A665755014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C26498-B496-43DA-945D-28A665755014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C26498-B496-43DA-945D-28A665755014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21D2D4D-6F1A-47AA-AFE3-88413AD82116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21D2D4D-6F1A-47AA-AFE3-88413AD82116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21D2D4D-6F1A-47AA-AFE3-88413AD82116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21D2D4D-6F1A-47AA-AFE3-88413AD82116}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
